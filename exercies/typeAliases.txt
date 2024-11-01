@@ -1,3 +1,42 @@
+// Type Aliases
+
+type value = string | number | boolean;
+
+let myValue: value;
+let myValue1: value;
+let myValue2: value;
+
+myValue = 10;
+console.log(myValue);
+
+myValue1 = "Hello";
+console.log(myValue1);
+
+myValue2 = true;
+console.log(myValue2);
+
+function displayValue(val: value) {
+  console.log("Function Value is " + val);
+}
+
+displayValue(10);
+
+type objectType = string | number | boolean | enum;
+
+enum enum1 {
+  A = "asion",
+  B = "Ok",
+  C = true,
+}
+function displayValue1(obj: objectType) {
+  console.log("Function Value is " + obj);
+}
+
+displayValue1("Hello");
+displayValue1(10);
+displayValue1(true);
+displayValue1(enum1.A);
+
 // const userDetails = (
 //     id: string | number,
 //     user : {name: string; age: number}

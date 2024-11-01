@@ -1,0 +1,101 @@
+enum UserRoles {
+  ADMIN = "admin",
+  USER = "user",
+  GUEST = "guest",
+  SUPER_ADMIN = "super_admin",
+}
+
+let userRole: UserRoles = UserRoles.ADMIN;
+console.log(UserRoles.ADMIN); // admin
+console.log(UserRoles.USER); // user
+
+enum Language {
+  English,
+  Spanish,
+  Russian,
+}
+let myLanguage: Language = Language.English; // myLanguage is set to Language.English, which defaults to 0
+
+console.log(myLanguage); // Output: 0
+console.log(Language.English); // 0
+
+enum Status {
+  Pending,
+  InProgress,
+  Completed,
+}
+// By default, if we create an enum without assigning any specific values, TypeScript will assign numbers automatically, starting from 0.
+console.log(Status.Pending); // Output: 0
+console.log(Status.InProgress); // Output: 1
+console.log(Status.Completed); // Output: 2
+
+enum MixedEnum {
+  Zero, // Defaults to 0
+  One = 1, // Manually assigned
+  Two = "TWO", // Custom string value
+}
+
+console.log(MixedEnum.Zero); // Output: 0
+console.log(MixedEnum.One); // Output: 1
+console.log(MixedEnum.Two); // Output: "TWO"
+enum Language {
+  English = "EN",
+  Spanish = "ES",
+  Russian = "RU",
+}
+function greet(language: Language): string {
+  if (language === Language.English) {
+    return "Hello!";
+  } else if (language === Language.Spanish) {
+    return "¡Hola!";
+  } else if (language === Language.Russian) {
+    return "Привет!";
+  }
+  return "Unknown language";
+}
+
+// Valid usage
+console.log(greet(Language.Spanish)); // Output: "¡Hola!"
+
+// Invalid usage
+console.log(greet("French")); // Error: Argument of type '"French"' is not assignable to parameter of type 'Language'
+enum Language {
+  English = 100,
+  Spanish = 200 + 300,
+  Russian,
+}
+console.log(Language.English); // Output: 100
+console.log(Language.Spanish); // Output: 500
+console.log(Language.Russian); // Output: 501
+
+enum Color {
+  Red = "#c10000",
+  Blue = "#007ac1",
+  Pink = 0xc10050, // A hexadecimal literal
+  White = 255, // A decimal literal
+}
+let red = Color.Red;
+let pink = Color.Pink;
+
+let a = Color.Red;
+
+let b = Color.Green; // Error TS2339: Property 'Green' does not exist
+on type 'typeof Color'.
+let c = Color[0]; // string
+let d = Color[6]; // string (!!!)
+
+console.log(a); // #c10000
+console.log(b); // Error TS2339: Property 'Green' does not exist on type 'typeof Color'.
+console.log(c); // Red
+console.log(d); // 6
+
+const enum SafeColor {
+  Red = "#c10000",
+  Blue = "#007ac1",
+  Pink = 0xc10050,
+  White = 255,
+}
+let safeRed = SafeColor.Red;
+console.log(safeRed); // "#c10000"
+let invalidAccess = SafeColor[255];
+console.log(invalidAccess); // Error: 'SafeColor' only refers to a type but is being used as a value here

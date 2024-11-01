@@ -1,48 +1,92 @@
-// interface RectangleOption{
-//     width: number; 
-//     length: number;
-// }
+interface User {
+  name: string;
+  email: string;
+  password: string;
+  memberShip?: boolean;
+  gender?: string;
+}
 
-// function drawRectangel(options: RectangleOption){
-//     let width = options.width;
-//     let length = options.length;
-// }
+interface Admin extends User {
+  admin: boolean;
+  role: string;
+}
 
-// let threeDimentionValue = {
-//     width: 30,
-//     length: 56,
-//     height: 45,
-// }
+const obj = {
+  name: "John",
+  email: "john@gmail.com",
+  password: "123456",
+  memberShip: true,
+  gender: "male",
+};
 
-// drawRectangel(threeDimentionValue)
+const admin = {
+  name: "asion",
+  email: "asion@gmail.com",
+  password: "1234567",
+  memberShip: true,
+  gender: "male",
+  admin: true,
+  role: "super_admin",
+};
+
+function registerUser(obj: User) {
+  console.log(obj);
+}
+
+registerUser(obj);
+
+function registerAdmin(admin: Admin) {
+  console.log(admin);
+}
+
+registerAdmin(admin);
+
+
+interface RectangleOption{
+     width: number; 
+     length: number;
+}
+
+ function drawRectangle(options: RectangleOption){
+     let width = options.width;
+     let length = options.length;
+}
+
+ let threeDimensionValue = {
+     width: 30,
+     length: 56,
+     height: 45,
+ }
+
+drawRectangle(threeDimensionValue)
 
 
 // Type One
 
-// interface IsStudent{
-//     id: number;
-//     name: string;
-//     age: number;
+ interface IsStudent{
+     id: number;
+     name: string;
+     age: number;
 
-//     info(): string;
-// }
-
-
-// class Student implements IsStudent {
-//   constructor(
-//     readonly id: number,
-//     public name: string,
-//     public age: number,
-//   ) {}
-
-//   info() {
-//     return `${this.name} from ${this.id} is access this classroom and his age is ${this.age}!`;
-//   }
-// }
+     info(): string;
+ }
 
 
-// const ashis = new Student(1 , "Ashis", 40);
-// const asis = new Student(2, "Asis", 20);
+ class Student implements IsStudent {
+   constructor(
+     readonly id: number,
+     public name: string,
+     public age: number,
+   ) {}
+
+   info() {
+     return `${this.name} from ${this.id} is access this classroom and his age is ${this.age}!`;
+   }
+ }
+
+
+ const ashis = new Student(1 , "Ashis", 40);
+ const asis = new Student(2, "Asis", 20);
    
 // let asion: IsStudent;
 // asion = new Student(3, "Asion", 26);

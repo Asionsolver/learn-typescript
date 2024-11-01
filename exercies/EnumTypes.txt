@@ -1,0 +1,37 @@
+enum responseType {
+  SUCCESS,
+  FAILURE,
+  UNAUTHENTICATED,
+  FORBIDDEN,
+}
+
+interface APIResponse<T> {
+  status: number;
+  type: responseType;
+  data: T;
+}
+
+const responseOne: APIResponse<object | string> = {
+  status: 200,
+  type: responseType.SUCCESS,
+  data: {
+    name: "ashis",
+    age: 26,
+    country: "Bangladesh",
+    something: 300,
+  },
+};
+
+const responseTwo: APIResponse<object | string> = {
+  status: 200,
+  type: responseType.UNAUTHENTICATED,
+  data: "Test2",
+};
+
+const responseThree: APIResponse<string> = {
+  status: 200,
+  type: responseType.FAILURE,
+  data: "Test",
+};
+
+console.log(responseOne);

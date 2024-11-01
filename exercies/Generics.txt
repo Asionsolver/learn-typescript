@@ -11,7 +11,7 @@
 // let user = {
 //     name: "Ashis",
 //     age: 26,
-//     country: "Bangledesh",
+//     country: "Bangladesh",
 // }
 
 // addId(user);
@@ -25,7 +25,7 @@ interface APIResponse<T>{
     data: T;
 }
 
-const reponseOne : APIResponse<object | string> ={
+const responseOne : APIResponse<object | string> ={
     status: 200,
     type: 'good',
     data:{
@@ -37,14 +37,14 @@ const reponseOne : APIResponse<object | string> ={
 }
 
 
-const reponseTwo : APIResponse<object | string> ={
+const responseTwo : APIResponse<object | string> ={
     status: 200,
     type: 'good',
     data:'Test2',
 }
 
 
-const reponseThree : APIResponse<string> ={
+const responseThree : APIResponse<string> ={
     status: 200,
     type: 'good',
     data:'Test',

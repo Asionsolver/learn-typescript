@@ -1,0 +1,32 @@
+let unknownValue: any = "I can be anything";
+
+Here, we can assign any kind of value to `unknownValue`
+unknownValue = 42; // No error
+console.log(unknownValue); // 42
+unknownValue = { key: "value" }; // No error
+console.log(unknownValue); // { key: 'value' }
+unknownValue = [1, 2, 3]; // No error
+console.log(unknownValue); // [1, 2, 3]
+let a: any = 666; // `a` is a number, but it has type `any`
+let b: any = ["danger"]; // `b` is an array, but it also has type `any`
+
+let c = a + b; // This compiles, but it will be problematic at runtime
+console.log(c); // Outputs "666danger", which is a string concatenation result
+let myValue: any = "hello";
+console.log(myValue.toUpperCase();) // Works because myValue is a string here)
+myValue = 123;
+console.log(myValue.toUpperCase()); // No compile-time error, but will throw a runtime error
+
+function handleData(data: any) {
+  console.log(data + " processed"); // Works at compile time, but risky
+}
+
+handleData("Data");
+handleData(123); // No error, but unclear if it will always behave as expected
+
+
+
+let b;
+b = 12;
+b = "hello";
+b.toUpperCase();

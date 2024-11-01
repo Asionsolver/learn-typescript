@@ -1,0 +1,23 @@
+let a: unknown;
+a = 12;
+a = "hello";
+a.toUpperCase(); // Error: Property 'toUpperCase' does not exist on type 'unknown'.
+
+let a: unknown;
+a = 12;
+a = "hello";
+
+if (typeof a === "string") {
+  console.log(a.toUpperCase()); // Works fine now, prints "HELLO"
+}
+
+let b: unknown; // Needs explicit annotation
+b = 10;
+let isTrue = b == 10;
+console.log(isTrue); // true
+// let result = a + 10; // Error without refinement
+if (typeof b === "number") {
+  let result = b + 10; // Works after refinement
+  console.log(result); // 20
+}
+console.log(b);
