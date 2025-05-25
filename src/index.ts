@@ -1,3 +1,4 @@
 // import "./tuples/basic"
 // import "./literals/handleResponse";
-import "./literals/object";
+// import "./literals/object";
+import "./generic/functionWithGeneric";
