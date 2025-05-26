@@ -3,4 +3,5 @@
 // import "./literals/object";
 // import "./generic/functionWithGeneric";
 // import "./mappedType/mappedType";
-import "./utility/utilityType";
+// import "./utility/utilityType";
+import "./oop/class";
