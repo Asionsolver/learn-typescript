@@ -6,4 +6,5 @@
 // import "./utility/utilityType";
 // import "./oop/class";
 // import "./oop/inheritance";
-import "./oop/typeGuard";
+// import "./oop/typeGuard";
+import "./oop/instanceOf";
