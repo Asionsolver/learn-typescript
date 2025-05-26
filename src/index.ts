@@ -8,4 +8,5 @@
 // import "./oop/inheritance";
 // import "./oop/typeGuard";
 // import "./oop/instanceOf";
-import "./oop/accessModifiers";
+// import "./oop/accessModifiers";
+import "./oop/getterAndSetter";
