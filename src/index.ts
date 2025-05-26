@@ -10,4 +10,5 @@
 // import "./oop/instanceOf";
 // import "./oop/accessModifiers";
 // import "./oop/getterAndSetter";
-import "./oop/statics";
+// import "./oop/statics";
+import "./oop/polymorphism";
