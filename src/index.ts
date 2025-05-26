@@ -7,4 +7,5 @@
 // import "./oop/class";
 // import "./oop/inheritance";
 // import "./oop/typeGuard";
-import "./oop/instanceOf";
+// import "./oop/instanceOf";
+import "./oop/accessModifiers";
