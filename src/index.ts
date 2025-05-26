@@ -5,4 +5,5 @@
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
 // import "./oop/class";
-import "./oop/inheritance";
+// import "./oop/inheritance";
+import "./oop/typeGuard";

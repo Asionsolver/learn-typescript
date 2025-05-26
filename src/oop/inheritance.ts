@@ -2,13 +2,13 @@ class Persons {
   constructor(
     public name: string,
     public age: number,
-    public address: string
+    public addresses: string
   ) {}
   greet() {
     console.log(`Hello, my name is ${this.name}.`);
   }
   getDetails() {
-    console.log(`${this.name}, Age: ${this.age}, Address: ${this.address}`);
+    console.log(`${this.name}, Age: ${this.age}, Address: ${this.addresses}`);
   }
   sleepHours(hours: number) {
     console.log(`${this.name} sleeps for ${hours} hours.`);
@@ -19,10 +19,10 @@ class Student extends Persons {
   constructor(
     public name: string,
     public age: number,
-    public address: string,
+    public addresses: string,
     public grade: string
   ) {
-    super(name, age, address);
+    super(name, age, addresses);
     this.grade = grade;
   }
 
@@ -51,9 +51,9 @@ class Teacher extends Persons {
     public age: number,
     public designation: string,
     public subject: string,
-    public address: string
+    public addresses: string
   ) {
-    super(name, age, address);
+    super(name, age, addresses);
     this.designation = designation;
     this.subject = subject;
   }
@@ -66,7 +66,7 @@ class Teacher extends Persons {
   }
   getDetails() {
     console.log(
-      `${this.name}, Age: ${this.age}, Designation: ${this.designation}, Address: ${this.address}, Subject: ${this.subject}`
+      `${this.name}, Age: ${this.age}, Designation: ${this.designation}, Address: ${this.addresses}, Subject: ${this.subject}`
     );
   }
 
