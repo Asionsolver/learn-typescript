@@ -4,7 +4,9 @@
 // import "./generic/functionWithGeneric";
 // import "./generic/practiceOne";
 // import "./generic/apiResponse";
-import "./generic/realWorldApiResponse";
+// import "./generic/realWorldApiResponse";
+import "./generic/Interface";
+// import "./generic/argument";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
 // import "./oop/class";

@@ -33,6 +33,17 @@ const responses: UserResponses = {
   errorMessage: "An error occurred while fetching data.",
 };
 
+// function handleUserApiResponses<T>(response: RealWorldApiResponse<T>) {
+//   if (response.isError) {
+//     console.error("An error occurred:", response.errorMessage);
+//   } else {
+//     console.log("Access Token:", response.access);
+//     console.log("Refresh Token:", response.refresh);
+//     console.log("User ID:", response.user.id); // Property 'id' does not exist on type 'T'.
+//     console.log("Is Institution:", response.user.is_institution); // Property 'is_institution' does not exist on type 'T'.
+//   }
+// }
+
 function handleUserApiResponses<T>(response: UserResponses) {
   if (response.isError) {
     console.error("An error occurred:", response.errorMessage);
