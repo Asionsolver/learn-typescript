@@ -5,7 +5,9 @@
 // import "./generic/practiceOne";
 // import "./generic/apiResponse";
 // import "./generic/realWorldApiResponse";
-import "./generic/Interface";
+// import "./generic/Interface";
+// import "./generic/oop/wrapperClass";
+import "./generic/oop/CRUD";
 // import "./generic/argument";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
