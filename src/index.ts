@@ -10,7 +10,8 @@
 // import "./generic/oop/CRUD";
 // import "./generic/oop/crud/basicCRUD";
 // import "./generic/oop/crud/callbacksCRUD";
-import "./generic/oop/crud/batchOperations";
+// import "./generic/oop/crud/batchOperations";
+import "./generic/oop/crud/batchOperationOptimization";
 // import "./generic/argument";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
