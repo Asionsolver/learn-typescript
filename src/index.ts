@@ -7,7 +7,8 @@
 // import "./generic/realWorldApiResponse";
 // import "./generic/Interface";
 // import "./generic/oop/wrapperClass";
-import "./generic/oop/CRUD";
+// import "./generic/oop/CRUD";
+import "./generic/oop/crud/basicCRUD";
 // import "./generic/argument";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
