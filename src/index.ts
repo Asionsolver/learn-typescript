@@ -2,6 +2,8 @@
 // import "./literals/handleResponse";
 // import "./literals/object";
 // import "./generic/functionWithGeneric";
+// import "./generic/practiceOne";
+import "./generic/apiResponse";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
 // import "./oop/class";
@@ -12,4 +14,4 @@
 // import "./oop/getterAndSetter";
 // import "./oop/statics";
 // import "./oop/polymorphism";
-import "./oop/abstraction";
+// import "./oop/abstraction";
