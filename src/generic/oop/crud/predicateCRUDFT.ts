@@ -153,7 +153,9 @@ class CRUDFT<T extends Identifier> {
    * @returns Filtered array of items
    */
 
-  batchFilter() {}
+  batchFilter(predicate: (item: T) => boolean): T[] {
+    return this.items.filter(predicate);
+  }
   /**
    * Toggle boolean field for matching items
    * @param predicate Filter condition
@@ -161,7 +163,21 @@ class CRUDFT<T extends Identifier> {
    * @returns Number of affected items
    */
 
-  batchToggle() {}
+  batchToggle(
+    predicate: (item: T) => boolean,
+    field: keyof Pick<
+      T,
+      { [K in keyof T]: T[K] extends boolean ? K : never }[keyof T]
+    >
+  ): number {
+    return this.updateBatch(
+      predicate,
+      (item) =>
+        ({
+          [field]: !item[field],
+        } as Partial<T>)
+    );
+  }
 }
 
 interface UsersInfo extends Identifier {
@@ -226,27 +242,6 @@ predicateCRUDFT.batchAdd([
   },
 ]);
 
-// console.log(predicateCRUDFT.getItemId(1));
-// console.log(predicateCRUDFT.getAllItems());
-// console.log(
-//   predicateCRUDFT.updateById(6, {
-//     name: "Chill",
-//   })
-// );
-
-// Get all active users
-// const activeUsers = batchRepo.filterBatch(
-//   user => user.active
-// );
-// console.log("Active users:", activeUsers);
-
-// Toggle active status for users with names starting with 'a'
-// const toggledCount = batchRepo.toggleBatch(
-//   user => user.name.toLowerCase().startsWith('a'),
-//   'active'
-// );
-// console.log(`Toggled ${toggledCount} users`);
-// Add multiple users at once
 predicateCRUDFT.batchAdd([
   {
     id: 8,
@@ -263,6 +258,14 @@ predicateCRUDFT.batchAdd([
     active: false,
   },
 ]);
+
+// console.log(predicateCRUDFT.getItemId(1));
+// console.log(predicateCRUDFT.getAllItems());
+// console.log(
+//   predicateCRUDFT.updateById(6, {
+//     name: "Chill",
+//   })
+// );
 
 // Update email domain for specific users
 const TotalUpdatedCount = predicateCRUDFT.updateBatch(
@@ -286,17 +289,28 @@ const TotalUpdatedCount = predicateCRUDFT.updateBatch(
 // const TotalDeletedCount = batchRepo.deleteBatch(inactiveUserIds);
 
 // Delete all inactive users
-const TotalDeletedCount = predicateCRUDFT.batchDelete((user) => !user.active);
+// const TotalDeletedCount = predicateCRUDFT.batchDelete((user) => !user.active);
 
 console.log(predicateCRUDFT.getAllItems());
 console.log("Total item Update: ", TotalUpdatedCount);
-console.log(`Deleted ${TotalDeletedCount} inactive users`);
+// console.log(`Deleted ${TotalDeletedCount} inactive users`);
+
+// Get all active users
+const activeUsers = predicateCRUDFT.batchFilter((user) => user.active);
+console.log("Active users:", activeUsers);
 
 // Deactivate Bangladesh users and log their names
-// batchRepo.updateBatch(
-//   user => user.address === "Bangladesh",
-//   user => {
-//     console.log(`Deactivating ${user.name}`);
-//     return { active: false };
-//   }
-// );
+predicateCRUDFT.updateBatch(
+  (user) => user.address === "Bangladesh",
+  (user) => {
+    console.log(`Deactivating ${user.name}`);
+    return { active: false };
+  }
+);
+
+// Toggle active status for users with names starting with 'a'
+const toggledCount = predicateCRUDFT.batchToggle(
+  (user) => user.name.toLowerCase().startsWith("a"),
+  "active"
+);
+console.log(`Toggled ${toggledCount} users`);
