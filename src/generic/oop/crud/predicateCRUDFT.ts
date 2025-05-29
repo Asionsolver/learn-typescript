@@ -141,7 +141,12 @@ class CRUDFT<T extends Identifier> {
    * @returns Number of deleted items
    */
 
-  batchDelete() {}
+  batchDelete(predicate: (items: T) => boolean): number {
+    const initialItemsLength = this.items.length;
+
+    this.items = this.items.filter((item) => !predicate(item));
+    return initialItemsLength - this.items.length;
+  }
   /**
    * Get all items matching predicate
    * @param predicate Filter condition
@@ -229,19 +234,6 @@ predicateCRUDFT.batchAdd([
 //   })
 // );
 
-// Deactivate all users from Bangladesh
-// const TotalUpdatedCount = predicateCRUDFT.batchUpdate(
-//   user => user.address === "Bangladesh",
-//   user => ({ active: false })
-// );
-// console.log(`Updated ${TotalUpdatedCount} users`);
-
-// Delete all inactive users
-// const TotalDeletedCount = batchRepo.deleteBatch(
-//   user => !user.active
-// );
-// console.log(`Deleted ${TotalDeletedCount} inactive users`);
-
 // Get all active users
 // const activeUsers = batchRepo.filterBatch(
 //   user => user.active
@@ -273,21 +265,32 @@ predicateCRUDFT.batchAdd([
 ]);
 
 // Update email domain for specific users
-// predicateCRUDFT.batchUpdate(
-//   (user) => user.email.endsWith("@gmail.com"),
-//   (user) => ({
-//     email: user.email.replace("@gmail.com", "@company.com"),
-//   })
+const TotalUpdatedCount = predicateCRUDFT.updateBatch(
+  (user) => user.email.endsWith("@gmail.com"),
+  (user) => ({
+    email: user.email.replace("@gmail.com", "@company.com"),
+  })
+);
+
+// Deactivate all users from Bangladesh
+// const TotalUpdatedCount = predicateCRUDFT.batchUpdate(
+//   user => user.address === "Bangladesh",
+//   user => ({ active: false })
 // );
 
-// console.log(predicateCRUDFT.getAllItems());
-// Delete users with duplicate IDs keeping the first occurrence
-// const ids = new Set();
-// const duplicateCount = predicateCRUDFT.batchDelete(user => {
-//   if (ids.has(user.id)) return true;
-//   ids.add(user.id);
-//   return false;
-// });
+// const inactiveUserIds = predicateCRUDFT
+//   .getAllItems()
+//   .filter((user) => !user.active)
+//   .map((user) => user.id);
+
+// const TotalDeletedCount = batchRepo.deleteBatch(inactiveUserIds);
+
+// Delete all inactive users
+const TotalDeletedCount = predicateCRUDFT.batchDelete((user) => !user.active);
+
+console.log(predicateCRUDFT.getAllItems());
+console.log("Total item Update: ", TotalUpdatedCount);
+console.log(`Deleted ${TotalDeletedCount} inactive users`);
 
 // Deactivate Bangladesh users and log their names
 // batchRepo.updateBatch(
