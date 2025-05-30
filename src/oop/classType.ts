@@ -1,0 +1,34 @@
+/**
+The name Logger now has two roles:
+
+@Type It describes the shape of any object created from the class.
+
+@Value It is also the class constructor function that you can use to create new instances.
+*/
+
+// class Logger {
+//   logger(message: string): void {
+//     console.log(message);
+//   }
+// }
+
+// // Using Logger as a TYPE
+// let myLogger: Logger; // ? We're saying: "myLogger should follow the structure of Logger"
+
+// myLogger = {
+//   logger(msg: string) {
+//     console.log("From myLogger:", msg);
+//   },
+// };
+
+// myLogger.logger("Hello"); // ✅ Works because object matches the Logger class structure
+// ➡️ Here, Logger is just being used as a type — it's not being instantiated. We're saying "myLogger must look like a Logger" — i.e., it must have a log(message: string) method.
+class Logger {
+  log(message: string): void {
+    console.log("From class Logger:", message);
+  }
+}
+
+// Using Logger as a VALUE (constructor)
+let logger = new Logger(); // Logger is being used to create an instance (object)
+logger.log("Hello"); // ✅ Works
