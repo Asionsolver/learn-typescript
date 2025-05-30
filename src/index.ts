@@ -26,4 +26,6 @@
 // import "./oop/polymorphism";
 // import "./oop/abstraction";
 // import "./oop/problem/simple/basic";
-import "./oop/problem/simple/basicTwo";
+// import "./oop/problem/simple/basicTwo";
+// import "./oop/problem/simple/bank";
+import "./oop/problem/medium/compositionInheritance";
