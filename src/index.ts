@@ -12,7 +12,7 @@
 // import "./generic/oop/crud/callbacksCRUD";
 // import "./generic/oop/crud/batchOperations";
 // import "./generic/oop/crud/batchOperationOptimization";
-import "./generic/oop/crud/predicateCRUDFT";
+// import "./generic/oop/crud/predicateCRUDFT";
 // import "./generic/argument";
 // import "./mappedType/mappedType";
 // import "./utility/utilityType";
@@ -25,3 +25,5 @@ import "./generic/oop/crud/predicateCRUDFT";
 // import "./oop/statics";
 // import "./oop/polymorphism";
 // import "./oop/abstraction";
+// import "./oop/problem/simple/basic";
+import "./oop/problem/simple/basicTwo";
