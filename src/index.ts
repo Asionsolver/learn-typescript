@@ -30,5 +30,6 @@
 // import "./oop/problem/simple/bank";
 // import "./oop/problem/medium/compositionInheritance";
 // import "./oop/problem/medium/singletonPattern";
-import "./oop/problem/medium/configurationManager";
+// import "./oop/problem/medium/configurationManager";
+import "./oop/problem/medium/interfaceSegregation";
 // import "./oop/classType";
