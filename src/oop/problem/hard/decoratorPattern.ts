@@ -71,9 +71,24 @@ class SugarDecorator extends CoffeeDecorator {
   }
 }
 
-let myCoffee: Coffee = new BasicCoffee();
-console.log(myCoffee.description(), "=>", myCoffee.cost()); // Basic Coffee => 5
+class HardDecorator extends CoffeeDecorator {
+  cost(): number {
+    return this.coffee.cost() + 5;
+  }
+  description(): string {
+    return this.coffee.description() + ", Hard Coffee";
+  }
+}
 
-myCoffee = new MilkDecorator(myCoffee);
-myCoffee = new SugarDecorator(myCoffee);
-console.log(myCoffee.description(), "=>", myCoffee.cost()); // Basic Coffee, Milk, Sugar => 8
+// let myCoffee: Coffee = new BasicCoffee();
+// console.log(myCoffee.description(), "=>", myCoffee.cost()); // Basic Coffee => 5
+
+// myCoffee = new MilkDecorator(myCoffee);
+// myCoffee = new SugarDecorator(myCoffee);
+// console.log(myCoffee.description(), "=>", myCoffee.cost()); // Basic Coffee, Milk, Sugar => 8
+
+let hardCoffee: Coffee = new BasicCoffee();
+console.log(hardCoffee.description(), "=>", hardCoffee.cost());
+
+hardCoffee = new HardDecorator(hardCoffee);
+console.log(hardCoffee.description(), "=>", hardCoffee.cost());
